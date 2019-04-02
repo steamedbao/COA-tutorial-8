@@ -1,0 +1,183 @@
+Cache thrash is caused by an ongoing computer activity that fails to progress due to excessive use of resources or conflicts in the caching system.
+FIFO does not prevent this from happening.
+Cause high CPU utilization that can cause crashes
+
+Any technique that is regular and repetitive will be prone to trashing.
+
+A 
+B
+C
+D
+
+Replace to run the other blocks
+
+E
+A
+B
+C
+
+Thrashing^
+
+Solution: go read notes
+Random access
+
+_______________________________________________________________________________________________________________________________________
+
+Memory chara of cache: Very fast in terms of access speed
+SRAM - fastest (Switches and transistors) (Occupies space - less space for memory cells)
+DRAM - slow and need refresh (Switches and capacitors) (slower than transistors)
+Flash - finite erase cycles and slow (Non-volatile, diff tech from switches)
+
+User got no control where data is stored. To ensure even life span of the memory cells, every part of the storage device would be used.
+
+________________________________________________________________________________________________________________________________________
+NAND Flash Memory
+
+Advantages
+- Cheaper by cost per bit
+- Nonvolatile storage technology that does not require power to retain data. 
+- Higher maximum chip capacity so that flash memory can compete with magnetic storage devices, such as hard disks
+- More compact
+
+Cons
+- Cannot read random access
+- Data accessed a page at a time
+
+- Use as storage memory (eg SD Card, USB thumbdrive)
+
+________________________________________________________________________________________________________________________________________
+NOR Flash Memory
+- Allows random data read by providing address info only
+- Supports execute in place (Code can execute directly)
+- More transistors so more expensive
+- Less compact thaan NAND
+
+- Ue mainly as system memory to store program code (eg mobile phones)
+
+**Flash memory finite because of the material. Non magnetic.
+
+________________________________________________________________________________________________________________________________________
+Hybrid solution of using both SSD and hard disk. Hard disk to store some of the larger memory. SSD to store system.
+
+________________________________________________________________________________________________________________________________________
+Capacity of HDD001
+- 4 surfaces
+- 1024 tracks per surface
+- 128 sectors per track
+- 512 bytes/ sector
+4*1024**128*512 = 256 MByte
+
+Note: 
+2 to the power of 10 is 1KB
+2 to pow of 20 = 1 MB
+2 to pow of 30 = 1 GB
+________________________________________________________________________________________________________________________________________
+Access Time 
+
+HDD Transfer rate
+Seek time - time taken for head to get to correct track
+Rotational delay - time taken for disk to rotate until read/write head reaches starting position of target
+Access time - time from request to time heaad is in position
+Transfer time - time to transfer required data after head is positioned
+
+Track to track seek time is 5 millisecond
+Rotational speed of 5000RPM
+
+Ts = 5mS
+TR = 0.5/RPS
+TA = TS+TR
+
+5000/ 60 
+TR = 0.5*60/5000 = 6 mS
+
+TA = TS + TR = 5+6 = 11mS
+
+TS is also average seek time
+
+________________________________________________________________________________________________________________________________________
+Time to transfer 4Kbyte file (assume consecutive sectors)
+
+Time for each rotation = 60/5000 = 0.012 s
+128*512 = 65536 bytessssssleepy
+
+Access time = 11ms
+Transfer time = 4096*(0.012/65536) = 0.00075 = 0.75
+
+**There are different number of sectors for each track, to maximise the linear space
+
+
+________________________________________________________________________________________________________________________________________
+Time to transfer 4Kbyte file (non-consecutive sectors)
+
+**Possible due to fragmentation
+**While defragmenting, ensure power source connected
+
+Time per rot = 0.012s
+
+How many sectors to read 4kb: 4096/512 = 8
+
+Transfer time: 0.012/128 = 93.7 microS 
+
+How long to read 1 sector TA + TT
+
+Total time (8sectors): 8*(TA+TT) = 88.75ms
+
+________________________________________________________________________________________________________________________________________
+HDD002 (GOOD) vs HDD001
+- More reliable
+  - higher MTTF 
+- Higher read/write performance
+  - higher RPM
+   - shorter seek time
+- More capacity
+  - more heads and sectors per track
+
+________________________________________________________________________________________________________________________________________
+SSD instead of HDD?
+No. SSD cost per bit is too high for large storaage. Has finite read/write cycles
+
+**1 head for 1 surface
+
+________________________________________________________________________________________________________________________________________
+Memory choice for system and storage memory
+- Ultra-thin android tablet with long battery life
+
+System memory: DRAM
+- Mem capacity: 1-2GB
+- Lower cost than SRAM
+
+Storage memory: NAND Flash
+- thinner form factor
+- lower power consumption
+
+________________________________________________________________________________________________________________________________________
+Probability that HDD001 still functioning after 1 year
+R(t) = e to the power of (-time/MTTF)
+time = 1 year = 24*365 = 8760
+R(t) = 0.983
+
+Probability of HDD002 still working
+R(t) = 0.991
+
+** But this does not mean that HDD001 will definitely spoil before HDD002. MTTF is just a statistical estimation.
+
+________________________________________________________________________________________________________________________________________
+Which RAID configuration cannot tolerate a signle disk falilure
+- Risk management
+RAID lvl 0
+
+________________________________________________________________________________________________________________________________________
+Tolerate 1 disk failure
+
+- RAID lvls 1 and 5
+________________________________________________________________________________________________________________________________________
+Can tolerate more than 1 simultaneous disk failure
+- RAID lvl 6 (for critical info)
+
+________________________________________________________________________________________________________________________________________
+** RAID lvl 10
+- if 2 hard disks break down on one side, then cannot recover
+- cannot be classified under any of the tutorial qsns
+
+
+
